@@ -3,54 +3,88 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [promptInput, setpromptsInput] = useState("");
+  const [toneInput, setToneInput] = useState("");
+  const [recieverInput, setRecieverInput] = useState("");
   const [result, setResult] = useState();
+  const [loading, setLoading] = useState(false);
 
   async function onSubmit(event) {
     event.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput }),
+        body: JSON.stringify({ 
+          prompt: promptInput,
+          tone: toneInput,
+          reciever: recieverInput
+         }),
       });
 
+      
       const data = await response.json();
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
 
       setResult(data.result);
-      setAnimalInput("");
+      setpromptsInput("");
+      setToneInput("");
+      setRecieverInput("");
     } catch(error) {
       // Consider implementing your own error handling logic here
       console.error(error);
       alert(error.message);
     }
+    finally {
+      setLoading(false);
+    }
   }
+
+
 
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
+        <title>Sincerely</title>
         <link rel="icon" href="/dog.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <h3>Sincerely</h3>
+        <p>As professional as it gets</p>
         <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
+          <input 
+            type="recepient"
+            name="reciever"
+            placeholder="Who is this for?"
+            value={recieverInput}
+            onChange={(e) => setRecieverInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input
+            type="prompt"
+            name="prompt"
+            placeholder="What do you want to say?"
+            value={promptInput}
+            onChange={(e) => setpromptsInput(e.target.value)}
+          />
+          <input
+            type="tone"
+            name="tone"
+            placeholder="What tone do you want to use?"
+            value={toneInput}
+            onChange={(e) => setToneInput(e.target.value)}
+          />
+          <input type="submit" value="Corporate it Up" />
         </form>
+        
+        {loading &&
+          <div>Loading</div>
+        }
         <div className={styles.result}>{result}</div>
       </main>
     </div>

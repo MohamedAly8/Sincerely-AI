@@ -15,21 +15,25 @@ export default async function (req, res) {
     return;
   }
 
-  const animal = req.body.animal || '';
-  if (animal.trim().length === 0) {
+  const inputprompt = req.body.prompt || '';
+  const tone = req.body.tone || '';
+  const reciever = req.body.reciever || '';
+  
+  if (inputprompt.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "Please enter a valid animal",
+        message: "Please enter a prompt",
       }
     });
     return;
-  }
+  } 
 
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(animal),
+      prompt: generatePrompt(inputprompt, tone, reciever),
       temperature: 0.6,
+      max_tokens: 200
     });
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
@@ -48,15 +52,15 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(animal) {
-  const capitalizedAnimal =
-    animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
+function generatePrompt(inputprompt, tone, reciever) {
+  return `
 
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: ${capitalizedAnimal}
-Names:`;
+  Tanslate the following text into professional, corporate language 
+  using ${inputprompt} Tone and the message to be addressed to ${reciever}.
+  The translated text will be be sent in an email format, it is important to 
+  mention the context of the issue and how you want it to be addressed. Do not include a
+  subject line. 
+  \n
+  ${inputprompt}`;
 }
+
