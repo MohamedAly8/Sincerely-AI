@@ -64,6 +64,9 @@
   font-size: 25px;
   font-weight: bold;
   color: #9100d5;
+  /* make it link to home */
+  cursor: pointer;
+  
 }
 
 .navbarMenu a{

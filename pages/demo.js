@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./demo.module.css";
+import Navbar from "./components/Navbar/Navbar";
 
 export default function Demo() {
   const [promptInput, setpromptsInput] = useState("");
@@ -53,6 +54,8 @@ export default function Demo() {
         <title>Sincerely</title>
         <link rel="icon" href="/dog.png" />
       </Head>
+
+      <Navbar />
 
       <main className={styles.main}>
         <h3>Sincerely</h3>
