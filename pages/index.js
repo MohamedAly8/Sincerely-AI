@@ -1,92 +1,52 @@
-import Head from "next/head";
-import { useState } from "react";
-import styles from "./index.module.css";
-
-export default function Home() {
-  const [promptInput, setpromptsInput] = useState("");
-  const [toneInput, setToneInput] = useState("");
-  const [recieverInput, setRecieverInput] = useState("");
-  const [result, setResult] = useState();
-  const [loading, setLoading] = useState(false);
-
-  async function onSubmit(event) {
-    event.preventDefault();
-    setLoading(true);
-    try {
-      const response = await fetch("/api/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ 
-          prompt: promptInput,
-          tone: toneInput,
-          reciever: recieverInput
-         }),
-      });
-
-      
-      const data = await response.json();
-      if (response.status !== 200) {
-        throw data.error || new Error(`Request failed with status ${response.status}`);
-      }
-
-      setResult(data.result);
-      setpromptsInput("");
-      setToneInput("");
-      setRecieverInput("");
-    } catch(error) {
-      // Consider implementing your own error handling logic here
-      console.error(error);
-      alert(error.message);
-    }
-    finally {
-      setLoading(false);
-    }
-  }
+import React from 'react';
+import Head from 'next/head';
+import styles from './index.module.css';
+import Navbar from './components/Navbar/Navbar';
+import { Router } from 'next/router';
+import { useRouter } from 'next/router';
+import HeroSection from './components/Hero/HeroSection';
 
 
+const LandingPage = () => {
+    const router = useRouter();
 
+    const handleStartNowClick = () => {
+        router.push('/demo');
+    };
   return (
     <div>
-      <Head>
-        <title>Sincerely</title>
-        <link rel="icon" href="/dog.png" />
-      </Head>
+      <Head><title>SincerelyAI</title></Head>
+      <Navbar/>
+      <HeroSection />
+
 
       <main className={styles.main}>
-        <h3>Sincerely</h3>
-        <p>As professional as it gets</p>
-        <form onSubmit={onSubmit}>
-          <input 
-            type="recepient"
-            name="reciever"
-            placeholder="Who is this for?"
-            value={recieverInput}
-            onChange={(e) => setRecieverInput(e.target.value)}
-          />
-          <input
-            type="prompt"
-            name="prompt"
-            placeholder="What do you want to say?"
-            value={promptInput}
-            onChange={(e) => setpromptsInput(e.target.value)}
-          />
-          <input
-            type="tone"
-            name="tone"
-            placeholder="What tone do you want to use?"
-            value={toneInput}
-            onChange={(e) => setToneInput(e.target.value)}
-          />
-          <input type="submit" value="Corporate it Up" />
-        </form>
-        
-        {loading &&
-          <div>Loading</div>
-        }
-        <div className={styles.result}>{result}</div>
+    
+        <section className={styles.about}>
+          <h2>About Sincerely</h2>
+          <p>
+            Sincerely uses cutting-edge AI technology to elevate your business communication. 
+            Replace placeholder with actual about text.
+          </p>
+        </section>
+
+        <section className={styles.features}>
+          <h2>Features</h2>
+          <ul>
+            <li>AI-enhanced text refinement</li>
+            <li>Various styles of professional language</li>
+            <li>Integration with your daily workflow</li>
+    
+          </ul>
+        </section>
+
+        <section className={styles.getStarted}>
+          <h2>Get Started with Sincerely</h2>
+          <button className={styles.button} onClick={handleStartNowClick}>Start Now</button>
+        </section>
       </main>
     </div>
   );
-}
+};
+
+export default LandingPage;

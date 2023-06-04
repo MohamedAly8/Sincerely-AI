@@ -30,57 +30,18 @@
   width: 34px;
 }
 .main h3 {
-  font-size: 50px;
+  font-size: 100px;
   line-height: 40px;
   font-weight: bold;
-  color: #202123;
+  color: #9100d5;
   margin: 16px 0 40px;
 }
-.main form {
-  display: flex;
-  flex-direction: column;
-  width: 800px;
-}
 
-
-.main input[type="recepient"] {
-  padding: 20px 10px;
-  border: 1px solid #9119e8;
-  border-radius: 4px;
-  margin-bottom: 24px;
-  outline-color: #9119e8;
-}
-.main input[type="prompt"] {
-  padding: 40px 10px;
-  border: 1px solid #9119e8;
-  border-radius: 4px;
-  margin-bottom: 24px;
-  outline-color: #9119e8;
-  resize: vertical;
-  min-height: 50px;
-  }
-.main input[type="tone"] {
-  padding: 40px 10px;
-  border: 1px solid #9119e8;
-  border-radius: 4px;
-  margin-bottom: 24px;
-  outline-color: #9119e8;
-}
-.main ::placeholder {
-  color: #8e8ea0;
-  opacity: 1;
-}
-.main input[type="submit"] {
-  padding: 12px 0;
-  color: #fff;
-  background-color: #9119e8;
-  border: none;
-  border-radius: 4px;
-  text-align: center;
-  cursor: pointer;
-}
-.main .result {
+.main button {
+  font-size: 30px;
+  line-height: 40px;
   font-weight: bold;
-  margin-top: 40px;
-  width: 800px;
+  color: #fff;
+  background-color: #9100d5;
+  margin: 16px 0 40px;
 }

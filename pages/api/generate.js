@@ -54,9 +54,8 @@ export default async function (req, res) {
 
 function generatePrompt(inputprompt, tone, reciever) {
   return `
-
   Tanslate the following text into professional, corporate language 
-  using ${inputprompt} Tone and the message to be addressed to ${reciever}.
+  using ${tone} Tone and the message to be addressed to ${reciever}.
   The translated text will be be sent in an email format, it is important to 
   mention the context of the issue and how you want it to be addressed. Do not include a
   subject line. 
