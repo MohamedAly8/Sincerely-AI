@@ -1,21 +1,10 @@
-@font-face {
-  font-family: "ColfaxAI";
-  src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
-      format("woff2"),
-    url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff) format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "ColfaxAI";
-  src: url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff2) format("woff2"),
-    url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff) format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
+
 .main,
 
+
+
 .navbar {
+  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,21 +24,87 @@
   /* space around elements evenly using display flex */
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 40%;
+  justify-content: space-between;
+  display: none; 
+  margin-right: 2rem;
+ 
+}
+
+.open {
+  display: flex;
+  z-index: 999;
+}
+
+.navbarMenu.open {
+  /* transition open  */
+  transform: translateY(0);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;  /* position below the navbar */
+  right: 0;   /* align to the right edge of the navbar */
+  width: 50%;  /* full-width dropdown on small screens */
   
+  background-color: white;  /* background color for visibility */
+  z-index: 999;  
+}
+
+
+
+.hamburger {
+  display: none;
+}
+
+/* Show the hamburger menu and hide the full menu when the viewport is less than 600px wide */
+@media (max-width: 600px) {
+  .navbarMenu {
+    display: none;
+
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 5%;
+  }
+
+
+  .navbarMenu.open a {
+    font-size: 30px;
+    width: 100%;
+    text-align: center; 
+    margin: 10px 0;
+    height: 100%;
+    
+  }
+
+}
+
+/* Show the full menu and hide the hamburger icon when the viewport is at least 600px wide */
+@media (min-width: 600px) {
+  .navbarMenu {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
 }
 
 .navbarMenu a {
   text-decoration: none;
   color: #9100d5;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 16px;
+  margin-right: 3rem;
+  padding: 5px 10px;
 }
 
 .navbarMenu a:hover {
-  /*  add underline to links on hover */
-  text-decoration: underline;
+  background-color:#9217cbd2;
+  color: white;
+  border-radius: 10px;
+  transition: 0.5s;
 }
 
 .navbarBrand {
@@ -57,19 +112,24 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 20%;
+  align-items: center;
+  margin-left: 3rem;
 }
 
 .navbarBrand h2 {
   font-size: 25px;
-  font-weight: bold;
+  /* make font weight less bold  */
+  font-weight: 600;
   color: #9100d5;
   /* make it link to home */
   cursor: pointer;
-  
+}
+.navbarBrand img {
+  height: 100%;
+  margin-right: 10px;
+  cursor: pointer;
+  display: flex;  
+  align-items: center;
 }
 
-.navbarMenu a{
-  font-size: 20px;
-}
 
