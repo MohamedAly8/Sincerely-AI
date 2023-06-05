@@ -1,7 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './conversation.module.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Conversation = () => {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+        });
+    }, []);
+
     const [userInput, setUserInput] = useState('');
 
     const handleChange = (e) => {
@@ -22,7 +31,7 @@ const Conversation = () => {
         
         <div className={styles.samples}>
 
-        <div className={styles.conversation}>
+        <div className={styles.conversation} data-aos="fade-up-right">
             <div className={styles.contact}>
                 {/* placeholdren for css */}
             <p className={styles.userimg}>S</p>
@@ -51,7 +60,7 @@ const Conversation = () => {
                 </div>
             </div>
         </div>
-        <div className={styles.conversation}>
+        <div className={styles.conversation} data-aos="fade-up-left">
             <div className={styles.contact}>
                 {/* placeholdren for css */}
             <p className={styles.userimg}>S</p>

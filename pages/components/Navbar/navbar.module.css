@@ -14,10 +14,9 @@
   height: 50px;
   border-bottom: 1px solid #696969c1;
 
-  /* make navbar stay when scrolling */
   position: fixed;
   top: 0;
-
+  z-index: 999;
 }
 
 .navbarMenu {
