@@ -23,6 +23,7 @@
 .main {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   padding-top: 60px;
 }
@@ -41,7 +42,6 @@
   flex-direction: column;
   width: 800px;
 }
-
 
 .main input[type="recepient"] {
   padding: 20px 10px;
@@ -78,10 +78,51 @@
   border-radius: 4px;
   text-align: center;
   cursor: pointer;
+  flex: 1 0 50%;
 }
 .main .result {
   font-weight: bold;
-  margin-top: 40px;
+  margin-top: 20px;
   width: 800px;
 }
 
+.toneBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.toneBtn {
+  padding: 15px;
+  color: #9119e8;
+  border: none;
+  border-radius: 20px;
+  font-family: 'ColfaxAI';
+  margin-right: 10px;
+  background-color: white;
+  cursor: pointer;
+  border: 1px solid #9119e8;
+  transition: ease-in-out 0.3s;
+}
+
+.selectedToneBtn {
+  padding: 15px;
+  background-color: #9119e8;
+  border: none;
+  border-radius: 20px;
+  font-family: 'ColfaxAI';
+  margin-right: 10px;
+  color: white;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+}
+
+.toneHeaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toneHeader {
+
+}
