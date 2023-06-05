@@ -17,7 +17,7 @@ const HeroSection = () => {
         <p className={styles.description}>
           Transform your business communications with AI-enhanced text refinement.
         </p>
-        <p className={styles.tagline}>As professional as it gets</p>
+        <p className={styles.tagline}>Sincerely, as professional as it gets</p>
 
         <div className={styles.buttonContainer}>
         <button className={styles.button}>Learn More</button>

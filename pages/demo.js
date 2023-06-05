@@ -60,7 +60,7 @@ export default function Demo() {
     <div>
       <Head>
         <title>Sincerely</title>
-        <link rel="icon" href="/dog.png" />
+        <link rel="icon" href="/icon.png" />
       </Head>
 
       <Navbar />

@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import styles from './index.module.css';
 import Navbar from './components/Navbar/Navbar';
+import Conversation from './components/Conversation/Conversation';
+import Features from './components/Features/Features';
 import { Router } from 'next/router';
 import { useRouter } from 'next/router';
 import HeroSection from './components/Hero/HeroSection';
@@ -15,10 +17,18 @@ const LandingPage = () => {
     };
   return (
     <div>
-      <Head><title>SincerelyAI</title></Head>
+      <Head>
+        <title>SincerelyAI</title>
+        {/* add icon on tab */}
+        <link rel="icon" href="/icon.png" />
+
+      </Head>
+
       <Navbar/>
       <HeroSection />
-
+      <Conversation />
+      <Features />
+      
 
       <main className={styles.main}>
     
