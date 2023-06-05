@@ -58,7 +58,7 @@ function generatePrompt(inputprompt, tone, reciever) {
   using ${tone} Tone and the message to be addressed to ${reciever}.
   The translated text will be be sent in an email format, it is important to 
   mention the context of the issue and how you want it to be addressed. Do not include a
-  subject line. 
+  subject line and specifically start your response with the word 'Dear'.
   \n
   ${inputprompt}`;
 }

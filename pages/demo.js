@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import styles from "./demo.module.css";
 import Navbar from "./components/Navbar/Navbar";
+import {RingLoader} from 'react-spinners';
 
 export default function Demo() {
   const [promptInput, setpromptsInput] = useState("");
@@ -9,6 +10,11 @@ export default function Demo() {
   const [recieverInput, setRecieverInput] = useState("");
   const [result, setResult] = useState();
   const [loading, setLoading] = useState(false);
+
+  function changeTone(e, tone) {
+    e.preventDefault();
+    setToneInput(tone);
+  }
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -32,7 +38,9 @@ export default function Demo() {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
 
-      setResult(data.result);
+      const actualData = data.result.split("Dear ")[1]
+
+      setResult("Dear " + actualData);
       setpromptsInput("");
       setToneInput("");
       setRecieverInput("");
@@ -75,20 +83,26 @@ export default function Demo() {
             value={promptInput}
             onChange={(e) => setpromptsInput(e.target.value)}
           />
-          <input
-            type="tone"
-            name="tone"
-            placeholder="What tone do you want to use?"
-            value={toneInput}
-            onChange={(e) => setToneInput(e.target.value)}
-          />
-          <input type="submit" value="Corporate it Up" />
+          <div className={styles.toneHeaderContainer}>
+            <h4 className={styles.toneHeader}>Tone</h4>
+          </div>
+          <div className={styles.toneBtns}>
+            <button className={toneInput === "Passive Aggressive" ? styles.selectedToneBtn : styles.toneBtn} onClick={(e) => changeTone(e, "Passive Aggressive")}>Passive Aggressive</button>
+            <button className={toneInput === "Respectful" ? styles.selectedToneBtn : styles.toneBtn} onClick={(e) => changeTone(e, "Respectful")}>Respectful</button>
+            <button className={toneInput === "Angry" ? styles.selectedToneBtn : styles.toneBtn} onClick={(e) => changeTone(e, "Angry")}>Angry</button>
+          </div>
+          { !loading && <input type="submit" value="Corporate it Up" />}
         </form>
         
         {loading &&
-          <div>Loading</div>
+          <RingLoader color="#9119e8" loading={loading} />
         }
-        <div className={styles.result}>{result}</div>
+        <div>
+          {result && result.split("\n").map((line, index) => (
+            <p className={styles.result} key={index}>{line}</p>   
+          ))}
+        </div>
+        
       </main>
     </div>
   );
