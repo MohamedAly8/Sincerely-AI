@@ -11,6 +11,7 @@ const Conversation = () => {
         });
     }, []);
 
+
     return (
         <div className={styles.conversationwrapper}>
             
@@ -18,7 +19,9 @@ const Conversation = () => {
         
         <div className={styles.samples}>
 
-        <div className={styles.conversation} data-aos="fade-up-right">
+        <div className={styles.conversation} data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500">
             <div className={styles.contact}>
                 {/* placeholdren for css */}
             <p className={styles.userimg}>S</p>
@@ -47,7 +50,9 @@ const Conversation = () => {
                 </div>
             </div>
         </div>
-        <div className={styles.conversation} data-aos="fade-up-left">
+        <div className={styles.conversation} data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500">
             <div className={styles.contact}>
                 {/* placeholdren for css */}
             <p className={styles.userimg}>S</p>
