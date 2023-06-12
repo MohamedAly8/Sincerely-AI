@@ -7,6 +7,8 @@ import Features from './components/Features/Features';
 import { Router } from 'next/router';
 import { useRouter } from 'next/router';
 import HeroSection from './components/Hero/HeroSection';
+import About from './components/About/About';
+import CallToAction from './components/CallToAction/CallToAction';
 
 
 const LandingPage = () => {
@@ -28,6 +30,8 @@ const LandingPage = () => {
       <HeroSection />
       <Conversation />
       <Features />
+      <About />
+      <CallToAction />
       
 
       <main className={styles.main}>

@@ -11,19 +11,6 @@ const Conversation = () => {
         });
     }, []);
 
-    const [userInput, setUserInput] = useState('');
-
-    const handleChange = (e) => {
-        setUserInput(e.target.value);
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Here, you'd handle sending the user's message to your API for a response.
-        console.log(userInput);
-        setUserInput('');
-    }
-
     return (
         <div className={styles.conversationwrapper}>
             
@@ -83,15 +70,9 @@ const Conversation = () => {
                         <br></br>
                         Thank you for understanding.
                         <br></br>
-                        <br></br>
                         Sincerely,
                         <br></br>
                         [Your Name]
-
-
-
-
-
                     </p>
                 </div>
 

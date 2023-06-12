@@ -27,7 +27,6 @@ const HeroSection = () => {
       <div className={styles.imageContainer}>
         <img src="/herobg.png" />
       </div>
-      {/* add learn more and try now buttons beside each other */}
       
     </div>
   );

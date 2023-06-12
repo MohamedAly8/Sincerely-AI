@@ -1,0 +1,36 @@
+.ctaSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #410073;
+    color: #fff;
+    padding: 2em;
+    text-align: center;
+    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  }
+  
+  .ctaSection h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+  
+  .ctaSection p {
+    font-size: 1.2em;
+    margin-bottom: 2em;
+  }
+  
+  .demoButton {
+    padding: 1em 2em;
+    font-size: 1.2em;
+    background-color: #fff;
+    color: #007aff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .demoButton:hover {
+    background-color: #ccc;
+  }
