@@ -26,6 +26,8 @@
   justify-content: space-between;
   display: none; 
   margin-right: 2rem;
+  width: 30%;
+  
  
 }
 
@@ -116,10 +118,9 @@
 
 
 .navbarMenu a:hover {
-  background-color:#9217cbd2;
-  color: white;
   border-radius: 10px;
   transition: 0.5s;
+  text-decoration: underline;
 }
 
 .navbarBrand {
