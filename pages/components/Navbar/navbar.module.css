@@ -55,22 +55,38 @@
 }
 
 /* Show the hamburger menu and hide the full menu when the viewport is less than 600px wide */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .navbarMenu {
     display: none;
+
 
   }
 
   .hamburger {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-right: 5%;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+    width: 25px;
+
+  }
+
+  .navbarMenu.open {
+    width: 50%;
+    height: 30vh;
+    background-color: #fad7ff;
+    border-radius: 10px;
+    transition: 0.5s;
+    overflow: hidden;
+    z-index: 999;
+    margin-right: 0;
+
   }
 
 
   .navbarMenu.open a {
-    font-size: 30px;
+    font-size: 25px;
     width: 100%;
     text-align: center; 
     margin: 10px 0;
@@ -95,8 +111,7 @@
   text-decoration: none;
   color: #9100d5;
   font-size: 16px;
-  margin-right: 3rem;
-  padding: 5px 10px;
+  padding: 10px 0px;
 }
 
 .navbarMenu a:hover {
