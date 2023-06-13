@@ -31,8 +31,8 @@ const LandingPage = () => {
       <HeroSection />
       <Conversation />
       <Features />
-      <About />
       <CallToAction />
+      <About />
       <Footer />
 
     </div>
