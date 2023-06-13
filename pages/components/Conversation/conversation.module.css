@@ -92,6 +92,7 @@
     /* add padding above and under */
     padding: 0.1em 0.3em 0.13em 0.5em;
     color: white;
+    
 
 }
 
@@ -99,6 +100,7 @@
     align-self: flex-start;
     background-color: #d8d8d8;
     color: black;
+    min-width: 250px;
     
 }
 .messageAI p {
@@ -134,4 +136,11 @@
     /* add padding below  */
     padding: 0 0 0.3em 0;
     color: #000000;
+}
+
+/* if width less than 700 hide second instance of contact */
+@media (max-width: 700px) {
+    .conversation:nth-child(2) {
+        display: none;
+    }
 }
