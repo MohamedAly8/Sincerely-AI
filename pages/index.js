@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import Head from 'next/head';
 import styles from './index.module.css';
 import Navbar from './components/Navbar/Navbar';
@@ -18,6 +18,16 @@ const LandingPage = () => {
     const handleStartNowClick = () => {
         router.push('/demo');
     };
+
+    const aboutRef = useRef(null);
+    const featuresRef = useRef(null);
+    const contactRef = useRef(null);
+  
+    // const scrollToRef = (ref) => {
+    //     console.log(ref)
+    //     ref.current.scrollIntoView({behavior: 'smooth'}) 
+    // };
+
   return (
     <div>
       <Head>
@@ -27,13 +37,13 @@ const LandingPage = () => {
 
       </Head>
 
-      <Navbar/>
+      <Navbar aboutRef={aboutRef} featuresRef={featuresRef} contactRef={contactRef}/>
       <HeroSection />
       <Conversation />
-      <Features />
+      <Features forwardRef={featuresRef} />
       <CallToAction />
-      <About />
-      <Footer />
+      <About forwardRef={aboutRef} />
+      <Footer forwardRef={contactRef} />
 
     </div>
   );

@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useRef} from "react";
 import styles from "./footer.module.css";
   
-const Footer = () => {
+const Footer = ({forwardRef}) => {
   return (
-    <div className={styles.footer}>
+    <div className={styles.footer} ref={forwardRef}>
         <div className={styles.footerContainer}>
             
             <div className={styles.footerBrand}>

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useRef} from "react";
 import styles from "./about.module.css";
 // import icons from favicon icons
 import {AiFillLinkedin, AiFillGithub} from "react-icons/ai";
@@ -6,7 +6,7 @@ import {AiFillLinkedin, AiFillGithub} from "react-icons/ai";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const About = () => {
+const About = ({forwardRef}) => {
 
     const mohamedimgsource = "/mohamed.png";
     const ayedimgsource = "/ayed.png"
@@ -18,7 +18,7 @@ const About = () => {
     }, []);
 
     return (
-        <div className={styles.aboutcontainer}>
+        <div ref={forwardRef} className={styles.aboutcontainer}>
             <div className={styles.aboutText}>
                 <h2>Our Team</h2>
             </div>
@@ -32,7 +32,7 @@ const About = () => {
                         <a href="https://www.linkedin.com/in/mohamed-aly08/" target="_blank" rel="noopener noreferrer">
                             <AiFillLinkedin />
                         </a>
-                        <a href="" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/MohamedAly8" target="_blank" rel="noopener noreferrer">
                             <AiFillGithub />
                         </a>
                     </div>
@@ -43,10 +43,10 @@ const About = () => {
                     <h3>Ayed Naber</h3>
                     <p>Full Stack Developer</p>
                     <div className={styles.socials}>
-                        <a href="https://www.linkedin.com/in/mohamed-aly08/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/ayed-naber/" target="_blank" rel="noopener noreferrer">
                             <AiFillLinkedin />
                         </a>
-                        <a href="" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/ayednaber" target="_blank" rel="noopener noreferrer">
                             <AiFillGithub />
                         </a>
                     </div>
