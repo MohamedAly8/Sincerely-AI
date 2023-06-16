@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import styles from './promptinput.module.css';
 import {RingLoader} from 'react-spinners';
+import { FiClipboard } from 'react-icons/fi';
 
 
 const PromptInput = () => {
@@ -11,6 +12,7 @@ const PromptInput = () => {
     const [result, setResult] = useState();
     const [loading, setLoading] = useState(false);
     const [selectedTab, setSelectedTab] = useState(1);
+    const [showCopiedMessage, setShowCopiedMessage] = useState(false);
   
       const handleChange = (event) => {
         setSelectedTab(parseInt(event.target.value));
@@ -74,13 +76,30 @@ const PromptInput = () => {
       }
     }
 
+    const resultRef = useRef();
+
+    const copyToClipboard = (e) => {
+        e.stopPropagation();
+        if (resultRef.current) {
+            const resultText = resultRef.current.innerText;
+            navigator.clipboard.writeText(resultText).then(() => {
+                console.log('Copied to clipboard');
+                setShowCopiedMessage(true);
+                setTimeout(() => setShowCopiedMessage(false), 3000);
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    }
+
+
 
 return (
 
 
     <div className={styles.main}>
     <div className={styles.prompt}>
-    <h3 classname={styles.promptHeader}>Transform Away</h3>
+    <h3 className={styles.promptHeader}>Transform Away</h3>
     <form onSubmit={onSubmit}>
       <input 
         type="recepient"
@@ -124,14 +143,26 @@ return (
 
         <div className={styles.response}>
             <h3>Response</h3>
-            <div class={styles.resultcontainer}>
+            <div ref={resultRef} className={styles.resultcontainer}>
+                
+                {showCopiedMessage && 
+                <div className={styles.copySuccess}>
+                    <p>Copied to clipboard!</p>
+                </div>}
+
+                {result &&<FiClipboard className={styles.clipboard} onClick={copyToClipboard}/>}
                 {result && result.split("\n").map((line, index) => (
                     <p className={styles.result} key={index}>{line}</p>   
                 ))}
-                {!result && <p className={styles.noresult}>No response yet</p>
-                }
+                {!result && <p className={styles.noresult}>No response yet</p>}
+
+            
             </div>
+            
+            
+           
         </div>
+        
     </div>
 
     
