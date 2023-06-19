@@ -4,7 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 
-const Features = () => {
+const Features = ({forwardRef}) => {
     const featuresList = [
         {
             title: 'AI-Powered',
@@ -34,7 +34,7 @@ const Features = () => {
 
 
 return (
-  <div className={styles.features}>
+  <div className={styles.features} ref={forwardRef}>
       <h2 className={styles.featuresHeader}>Features</h2>
       <div className={styles.featuresGrid}>
           {featuresList.map((feature, index) => (

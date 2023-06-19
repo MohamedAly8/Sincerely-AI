@@ -19,9 +19,9 @@
 .conversationwrapper h1 {
     text-align: center;
     /* min,max.default font size with clamp */
-    font-size: clamp(3rem, 5vw, 3.5rem);
+    font-size: clamp(2.5em, 5vw, 3.5rem);
     /* no bottom margin */
-    margin: 1em 0 0.2em 0;
+    margin: 1em 0.2em 0.2em 0;
     color: #FFF;    /* change font to be like iOS text message not bold*/
     font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 }

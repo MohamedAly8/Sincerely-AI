@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Navbar = ({aboutRef, featuresRef, contactRef}) => {
+const Navbar = ({ aboutRef, featuresRef, contactRef }) => {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const router = useRouter();
 
@@ -20,6 +20,7 @@ const Navbar = ({aboutRef, featuresRef, contactRef}) => {
 
     const scrollToRef = (ref) => {
       ref.current.scrollIntoView({ behavior: 'smooth' });
+      setMenuOpen(false);
     };
 
   return (

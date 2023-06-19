@@ -52,14 +52,18 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(inputprompt, tone, reciever) {
+function generatePrompt(inputprompt, tone, receiver) {
   return `
-  Tanslate the following text into professional, corporate language 
-  using ${tone} Tone and the message to be addressed to ${reciever}.
-  The translated text will be be sent in an email format, it is important to 
-  mention the context of the issue and how you want it to be addressed. Do not include a
-  subject line and specifically start your response with the word 'Dear'.
-  \n
-  ${inputprompt}`;
+As an AI language model developed by OpenAI known as EmailTextTransformer GPT, your role is to transform the input prompt into a professional, corporate language. The transformed text should:
+
+1. Use a ${tone} Tone.
+2. Be addressed to ${receiver}.
+3. Be presented in an email format (excluding the subject line).
+4. Start with the word 'Dear'.
+5. Mention the context of the issue.
+6. Explain how you want the issue to be addressed.
+
+Now, please translate the following text in the same manner:
+Text """${inputprompt} """`;
 }
 

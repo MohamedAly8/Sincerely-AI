@@ -22,7 +22,7 @@ const HeroSection = () => {
         </p>
 
         <div className={styles.buttonContainer}>
-          <button className={styles.buttongs}>Get Started</button>
+          <button className={styles.buttongs} onClick={gotoDemo}>Get Started</button>
           <button className={styles.button} onClick={gotoDemo}>Try Demo</button>
         </div>
       </div>

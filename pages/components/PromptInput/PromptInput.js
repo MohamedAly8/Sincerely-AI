@@ -104,14 +104,14 @@ return (
       <input 
         type="recepient"
         name="reciever"
-        placeholder="Who is this for?"
+        placeholder="Ex: John, my employee"
         value={recieverInput}
         onChange={(e) => setRecieverInput(e.target.value)}
       />
       <textarea
         type="prompt"
         name="multilinetextbox"
-        placeholder="What do you want to say?"
+        placeholder="Ex: I am very disappointed in your performance, get better."
         value={promptInput}
         onChange={(e) => setpromptsInput(e.target.value)}
       />
