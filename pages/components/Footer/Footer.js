@@ -9,9 +9,13 @@ const Footer = ({forwardRef}) => {
             
             <div className={styles.footerBrand}>
                 <div className={styles.startUsing}>
-                    <h2 className={styles.sincerelytext}>Start using SincerelyAI today!</h2>
+                    <h2 className={styles.sincerelytext}>Sign up to get notified for feature updates</h2>
+                    
                     <div className={styles.emailContainer}>
-                        <input type="text" placeholder="Enter your email..." className={styles.emailfield}></input>
+                        <form className={styles.emailContainer} netlify>
+                            <input type="text" placeholder="Enter your email..." className={styles.emailfield}></input>
+                        </form>
+                        
                         <AiOutlineSend className={styles.sendBtn} />
                     </div>
                 </div>
