@@ -1,5 +1,6 @@
 import React, {useRef} from "react";
 import styles from "./footer.module.css";
+import {AiFillLinkedin, AiOutlineSend} from "react-icons/ai"
   
 const Footer = ({forwardRef}) => {
   return (
@@ -7,26 +8,43 @@ const Footer = ({forwardRef}) => {
         <div className={styles.footerContainer}>
             
             <div className={styles.footerBrand}>
-                <h2>SincerelyAI</h2>
+                <div className={styles.startUsing}>
+                    <h2 className={styles.sincerelytext}>Start using SincerelyAI today!</h2>
+                    <div className={styles.emailContainer}>
+                        <input type="text" placeholder="Enter your email..." className={styles.emailfield}></input>
+                        <AiOutlineSend className={styles.sendBtn} />
+                    </div>
+                </div>
+                {/* <div className={styles.imageContainer}> */}
+                    <img src="/herobg.png" className={styles.heroimage} />
+                {/* </div> */}
             </div>
 
             <div className={styles.footerColumns}>
+                <div className={styles.logoAndQuote}>
+                    <div className={styles.navbarBrand}>
+                      <img src="/icon.png"></img><h2>SincerelyAI</h2>
+                    </div>
+                    <p>As professional as it gets.</p>
+                </div>
                 <div className={styles.footerColumn}>
-                    <h3>Company</h3>
                     <ul>
-                        <li>About</li>
-                        <li>Features</li>
-                        <li>Contact</li>
+                        <li className={styles.footerItem}>About</li>
+                        <li className={styles.footerItem}>Features</li>
+                        <li className={styles.footerItem}>Contact</li>
                     </ul>
                 </div>
                 <div className={styles.footerColumn}>
-                    <h3>Legal</h3>
                     <ul>
-                        <li>Terms of Use</li>
-                        <li>Privacy Policy</li>
-                        <li>Cookie Policy</li>
+                        <li className={styles.footerItem}>Terms of Use</li>
+                        <li className={styles.footerItem}>Privacy Policy</li>
+                        <li className={styles.footerItem}>Cookie Policy</li>
                     </ul>
                 </div>
+                {/* <div className={styles.footerColumn}>
+                    <h4>Let's chat!</h4>
+                    <p>ayed@mohamed.ca</p>
+                </div> */}
             </div>
         </div>
     </div>

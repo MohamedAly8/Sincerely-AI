@@ -3,7 +3,8 @@
     justify-content: center;
     align-items: center;
     font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
-    background-color: #ca83fc;
+    /* background-color: #ca83fc; */
+    background-color: #eed8fd;
 }
 
 .footerContainer {
@@ -15,9 +16,99 @@
 }
 
 .footerBrand {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   flex-direction: row;
+   margin-bottom: 10px;
+   width: 100%;
+}
+
+.imageContainer {
     display: flex;
     align-items: center;
-   margin-bottom: 10px;
+    justify-content: center;
+}
+
+.heroimage {
+    width: 30%;
+}
+
+@media (max-width: 700px) {
+    .heroimage {
+        display: none;
+    }
+}
+
+.emailfield {
+    padding: 10px;
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid #1f1f21;
+    transition: ease-in-out 0.3s;
+    width: 100%;
+}
+
+.emailfield:focus {
+    outline: none;
+    border-bottom: #ca83fc;
+    border-bottom: 2px solid #ffffff;
+}
+
+.emailContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sendBtn {
+    font-size: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+.sendBtn:hover {
+    color: #ffffff
+}
+
+.navbarBrand {
+    /* space around elements evenly using display flex */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* margin-left: 3rem; */
+}
+
+.navbarBrand h2 {
+    color: #9100d5;
+    margin-left: 5px;
+}
+
+.logoAndQuote {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoAndQuote p {
+    color: #9100d5;
+    margin-top: -13px;
+}
+
+.sincerelytext {
+    width: 100%;
+}
+
+.footerItem {
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: ease-in-out 0.3s;
+}
+
+.footerItem:hover {
+    font-size: 17px;
 }
 
 .footerBrand h2 {
@@ -28,10 +119,8 @@
 .footerColumns {
     display: flex;
     justify-content: space-around;
-
-    
     align-items: center;
-    width: 90%;
+    width: 100%;
     margin-bottom: 10px;
 }
 
@@ -46,6 +135,8 @@
 .footerColumns ul {
     list-style: none;
     padding: 10px;
-    
+}
 
+.input-group {
+ position: relative;
 }
