@@ -13,10 +13,11 @@ const Footer = ({forwardRef}) => {
                     
                     <div className={styles.emailContainer}>
                         <form className={styles.emailContainer} netlify>
-                            <input type="text" placeholder="Enter your email..." className={styles.emailfield}></input>
+                            <input type="text" placeholder="Enter your email..." className={styles.emailfield}></input>        
+                            <button type="submit" className={styles.emailbutton}><AiOutlineSend /></button>
+                            
                         </form>
-                        
-                        <AiOutlineSend className={styles.sendBtn} />
+                
                     </div>
                 </div>
                 {/* <div className={styles.imageContainer}> */}

@@ -56,6 +56,15 @@
     width: 100%;
 }
 
+.emailbutton {
+    /* no background */
+    background: none;
+    /* no border */
+    border: none;
+    /* MAKE icon inside bigger */
+    font-size: 25px;
+}
+
 .emailfield:focus {
     outline: none;
     border-bottom: #ca83fc;
